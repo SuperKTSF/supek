@@ -1,0 +1,325 @@
+<!doctype html>
+<html>
+<head>
+<title>task_2</title>
+<meta charset="utf-8">
+</head>
+<body>
+<style>
+    body{
+        margin: 0;
+        font-family: 'Roboto Condensed', sans-serif;
+        background: #DDDDDD;
+    }
+    body a{
+        text-decoration:none;
+    }
+    h1,h2{
+        margin:0;
+        padding: 10px;
+        font-family: 'Overlock', cursive;
+    }
+    h2{
+        color: #aaaaaa;
+    }
+    p{
+        margin:0;
+        padding:10px;
+    }
+    ul,label{
+        margin:0;
+        padding:0;
+    }
+
+    header,footer{
+        color:#ffffff;
+        background-color: black;
+        height:60px;
+    }
+    nav {
+        text-align: right;
+        vertical-align: middle;
+    }
+    footer>p{
+        padding: 15px;
+        text-align: center;
+
+    }
+    .module {
+        margin: 20px;
+        padding: 20px;
+        border:solid 1px black;
+        background-color: #ffffff;
+
+    }
+    ul.nav>li {
+        display:inline-block;
+        padding-right: 20px;
+        padding-top: 19px;
+    }
+    ul.nav a{
+       color: #ffffff;
+    }
+    ul.nav a:focus{
+        color: #DDDDDD;
+    }
+    header img{
+        padding-left: 20px;
+        float: left;
+    }
+    p.text{
+        text-indent: 2em;
+    }
+
+    p.time{
+        color:#999999;
+        font-size:small;
+    }
+    ul li{
+        list-style-type: none;
+    }
+    div figure {
+        border:solid 1px black;
+        padding: 5px;
+        margin: 10px 10px 10px 30px;
+        width:120px;
+        text-align: center;
+
+    }
+    div figure>img{
+        width:100px;
+        height:80px;
+    }
+    thead tr{
+        background-color: black;
+        color: white;
+    }
+    tfoot tr{
+        background-color: #DDDDDD;
+    }
+    form{
+        display:table;
+        padding:10px;
+        margin-left: 30%;
+    }
+    textarea{
+        width: 700px;
+        height: 100px;
+    }
+    div.tablerow{
+        display: table-row;
+    }
+    div.tablerow label{
+        display: table-cell;
+        vertical-align: top;
+        padding: 3px 10px ;
+    }
+    div.tablerow input{
+        display: table-cell;
+        vertical-align: top;
+        padding: 3px;
+    }
+    div.tablerow label{
+        text-align: right;
+    }
+    input#button{
+        display: inline;
+        background-color:#0066ff ;
+        color:white;
+        width:100%;
+        height:50px;
+        border-radius: 10px;
+
+    }
+
+</style>
+<header >
+    <img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo_top_ca79a146.png" >
+    <nav >
+        <ul class="nav">
+            <li><a href="#">导航链接一</a></li>
+            <li><a href="#">导航链接二</a></li>
+            <li><a href="#">导航链接三</a></li>
+            <li><a href="#">导航链接四</a></li>
+        </ul>
+    </nav>
+</header>
+
+<article class="module">
+    <h1>文章一级标题</h1>
+    <h2>文章二级标题</h2>
+    <P class="time">文章作者&nbsp文章发表时间</P>
+    <P class="text">这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，</br>
+        换行了</br>这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,换行了</br>
+        这是一个很长的段落，这是一个很长的段落，<a href = "http://ife.baidu.com">这里有一个链接到http://ife.baidu.com</a>这是一个很长的段落，这是一个很长的段落，
+        <b>这里有个粗体字</b>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。
+    </P>
+    <img src="image/task1.jpg" alt="美丽的风景">
+    <P class="text">这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，<b>这里有个粗体字</b>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，</br>
+        换行了</br>这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,换行了</br>
+        这是一个很长的段落，这是一个很长的段落，<a href = "http://ife.baidu.com" target="_blank">这里有一个链接点击后打开新窗口链接到http://ife.baidu.com</a>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。
+    </P>
+</article>
+<article class="module">
+    <h1>另一篇文章的一级标题</h1>
+    <h2>文章的二级标题</h2>
+    <P class="time">文章作者&nbsp文章发表时间</P>
+    <P class="text">这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，</br>
+        换行了</br>这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,这是一个很长的段落,换行了</br>
+        这是一个很长的段落，这是一个很长的段落，<a href = "http://ife.baidu.com">这里有一个链接到http://ife.baidu.com</a>这是一个很长的段落，这是一个很长的段落，
+        <b>这里有个粗体字</b>这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落，这是一个很长的段落。
+    </P>
+    <img src="image/task1.jpg" alt="美丽的风景">
+    <ul>
+        <li>列表项目一</li>
+        <li>列表项目二</li>
+        <li>列表项目三</li>
+    </ul>
+</article>
+<div class="module">
+    <strong>图片</strong>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+    <figure>
+        <figcaption>好看的图片</figcaption>
+        <img src="image/task1.jpg" alt="美丽的风景">
+    </figure>
+</div>
+
+<article class="module">
+    <h1>最后一篇文章的一级标题</h1>
+    <h2>文章二级标题</h2>
+    <P class="time">文章作者&nbsp文章发表时间</P>
+    <ol>
+        <li>排名1</li>
+        <li>排名2</li>
+        <li>排名3</li>
+    </ol>
+    <table border="1" width="100%" cellspacing="0">
+        <p>下面是一个表格，给表格加了一个border="1"好让你看出是一个表格</p>
+        <thead>
+        <tr>
+            <th>表头</th>
+            <th>表头</th>
+            <th>表头</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="">操作</a></td>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="">操作</a></td>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="">操作</a></td>
+        </tr>
+        <tr>
+            <td>表内容单元格</td>
+            <td>表内容单元格</td>
+            <td><a href="">操作</a></td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td>总计</td>
+            <td colspan="2">1000</td>
+        </tr>
+        </tfoot>
+    </table>
+</article>
+<aside class="module">
+    <h1>这里以后是个侧栏，这是侧栏的标题</h1>
+    <form>
+        <div class="tablerow">
+            <label for="email">请输入邮箱地址</label>
+            <input type="email" id="email" placeholder="这是一个文本输入框"/>
+            <p>邮箱格式请按要求格式输入</p>
+        </div>
+
+        <div class="tablerow">
+            <label for="password">请输入密码</label>
+            <input type="password" id="password" placeholder="这是一个文本输入框"/>
+        </div>
+        <div class="tablerow">
+            <label for="repassword">请重复输入密码</label>
+            <input type="password" id="repassword" placeholder="这是一个文本输入框"/>
+            <p>密码请为6-16位英文字母</p>
+        </div>
+        <div class="tablerow">
+            <label for="nan">性别</label>
+
+            <input type="radio" name="name" id="nan">男
+            <input type="radio" checked="checked" name="name" id="nv">女
+
+        </div>
+        <div class="tablerow">
+            <label for="city">城市</label>
+            <select id="city">
+                <option selected="selected">北京</option>
+                <option>上海</option>
+                <option>广州</option>
+            </select>
+        </div>
+        <div class="tablerow">
+            <label for="habby">爱好</label>
+            <input type="checkbox" id="habby" value="运动">运动
+
+            <input type="checkbox" id="art"value="艺术">艺术
+
+            <input type="checkbox"  id="science" value="科学">科学
+
+        </div>
+        <div class="tablerow">
+            <label for="personal">个人描述</label>
+            <textarea id="personal" placeholder="这是一个多行输入框，输入您的个人描述"></textarea>
+        </div>
+
+    </form>
+    <input type="submit" value="确认提交" id="button">
+</aside>
+<footer>
+    <p>版权所有@</p>
+</footer>
+</body>
+</html>
