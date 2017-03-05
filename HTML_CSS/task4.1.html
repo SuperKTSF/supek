@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    body{
+        position: relative;
+        margin: 0;
+    }
+    .containner{
+        position: fixed;
+        width:400px;
+        height:200px;
+        background: #cccccc;
+        top:0;right:0;left:0;bottom:0;
+        margin: auto auto;
+        overflow: hidden;
+    }
+    .circle{
+        width:100px;
+        height: 100px;
+        background: #fc0;
+        border-radius: 50px;
+
+    }
+    #circleA{
+        position: absolute;
+        top:-50px;
+        left:-50px;
+    }
+
+    #circleB{
+        position: absolute;
+        bottom:-50px;
+        right:-50px;
+    }
+</style>
+<div class="containner">
+    <div class="circle" id="circleA"></div>
+    <div class="circle" id = "circleB"></div>
+</div>
+
+</body>
+</html>
