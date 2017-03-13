@@ -10,71 +10,114 @@
         padding: 0;
         margin: 0;
     }
+    main{
+        display: flex;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
     form{
         margin-bottom: 5px;
     }
     ul li {
         border:solid 1px red;
-        width:2em;
-        height: 2em;
+        height: 50px;
+        font-size: 35px;
         display: inline-block;
         text-align: center;
         vertical-align: bottom;
         background-color: red;
         margin-right: 10px;
         color: white;
+        padding: 0  15px;
+        border-radius: 15%;
 
+    }
+    input{
+        width: 400px;
+        height: 50px;
+        font-size: 30px;
     }
     button{
         border-radius: 5px;
+        font-size: large;
+        width: 100px;
+        height: 50px;
     }
 
     button#right_in{
         margin-right: 20px;
     }
 </style>
-<form>
-    <input type="text" />
-    <button type="button" id="left_in">左侧入</button>
-    <button type="button" id="right_in">右侧入</button>
-    <button type="button" id="left_out">左侧出</button>
-    <button type="button" id="right_out">右侧出</button>
-</form>
+<main>
+    <form>
+        <input type="text" placeholder="   请输入合法数字！"/>
+        <button type="button" id="left_in">左侧入</button>
+        <button type="button" id="right_in">右侧入</button>
+        <button type="button" id="left_out">左侧出</button>
+        <button type="button" id="right_out">右侧出</button>
+    </form>
 
-<div >
-    <ul id="array">
-    </ul>
-</div>
+    <div >
+        <ul id="array">
+        </ul>
+    </div>
+
+</main>
+
 <script>
     function left_in_Handle(){
 
         var ul = document.getElementById("array");
         var text = document.getElementsByTagName("input")[0];
         var li = document.createElement("li");
-        li.innerHTML = text.value;
-        ul.insertBefore(li,ul.firstElementChild);
+        if(text.value==""){
+            alert("请输入合法数字！");
+        }else{
+            li.innerHTML = text.value;
+            ul.insertBefore(li,ul.firstElementChild);
+            text.value="";
+        }
+
     }
     function right_in_Handle(){
         var ul = document.getElementById("array");
         var text = document.getElementsByTagName("input")[0];
         var li = document.createElement("li");
-        li.innerHTML = text.value;
-        ul.appendChild(li);
+        if(text.value==""){
+            alert("请输入合法数字！");
+        }else{
+            li.innerHTML = text.value;
+            ul.appendChild(li);
+            text.value="";
+        }
+
 
     }
     function left_out_Handle(){
         var ul = document.getElementById("array");
-        var node = ul.removeChild(ul.firstElementChild);  //firstChild和lastChild在不同情况下会返回文本节点，这里统一为element类型
-        if(node.nodeName.toLowerCase()=="li"){
+        if(ul.firstElementChild==null){
+            alert("数组已为空，无法移除！");
+        }else{
+            var node = ul.removeChild(ul.firstElementChild);  //firstChild和lastChild在不同情况下会返回文本节点，这里统一为element类型
             alert(node.innerHTML);
         }
+
+
+
 
 
     }
     function right_out_Handle(){
         var ul = document.getElementById("array");
-        var node = ul.removeChild(ul.lastElementChild);
-        alert(node.innerHTML);
+        if(ul.lastElementChild==null){
+            alert("数组已为空，无法移除！");
+        }else{
+            var node = ul.removeChild(ul.lastElementChild);
+            alert(node.innerHTML);
+        }
+
 
     }
 
