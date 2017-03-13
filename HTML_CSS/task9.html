@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 04</title>
+</head>
+<body>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    form{
+        margin-bottom: 5px;
+    }
+    ul li {
+        border:solid 1px red;
+        width:2em;
+        height: 2em;
+        display: inline-block;
+        text-align: center;
+        vertical-align: bottom;
+        background-color: red;
+        margin-right: 10px;
+        color: white;
+
+    }
+    button{
+        border-radius: 5px;
+    }
+
+    button#right_in{
+        margin-right: 20px;
+    }
+</style>
+<form>
+    <input type="text" />
+    <button type="button" id="left_in">左侧入</button>
+    <button type="button" id="right_in">右侧入</button>
+    <button type="button" id="left_out">左侧出</button>
+    <button type="button" id="right_out">右侧出</button>
+</form>
+
+<div >
+    <ul id="array">
+    </ul>
+</div>
+<script>
+    function left_in_Handle(){
+
+        var ul = document.getElementById("array");
+        var text = document.getElementsByTagName("input")[0];
+        var li = document.createElement("li");
+        li.innerHTML = text.value;
+        ul.insertBefore(li,ul.firstElementChild);
+    }
+    function right_in_Handle(){
+        var ul = document.getElementById("array");
+        var text = document.getElementsByTagName("input")[0];
+        var li = document.createElement("li");
+        li.innerHTML = text.value;
+        ul.appendChild(li);
+
+    }
+    function left_out_Handle(){
+        var ul = document.getElementById("array");
+        var node = ul.removeChild(ul.firstElementChild);  //firstChild和lastChild在不同情况下会返回文本节点，这里统一为element类型
+        if(node.nodeName.toLowerCase()=="li"){
+            alert(node.innerHTML);
+        }
+
+
+    }
+    function right_out_Handle(){
+        var ul = document.getElementById("array");
+        var node = ul.removeChild(ul.lastElementChild);
+        alert(node.innerHTML);
+
+    }
+
+
+    function init() {
+        var left_in = document.getElementById("left_in");
+        var right_in = document.getElementById("right_in");
+        var left_out = document.getElementById("left_out");
+        var right_out = document.getElementById("right_out");
+
+        left_in.onclick= left_in_Handle;
+        right_in.onclick= right_in_Handle;
+        left_out.onclick= left_out_Handle;
+        right_out.onclick= right_out_Handle;
+
+        var  ul = document.getElementById("array");      //用事件代理来写是在是太爽了
+        ul.onclick = function(event){
+            var event = event||window.event;
+            var target = event.target||event.srcElement;
+            if(target.tagName.toLowerCase()=='li'){
+                ul.removeChild(target);
+            }
+
+
+        }
+
+    }
+
+    init();
+
+
+</script>
+
+</body>
+</html>
