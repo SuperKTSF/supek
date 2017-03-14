@@ -19,7 +19,7 @@
         display: flex;
         flex-direction: row;
         align-items: flex-end;
-        height: 100px;
+        height: 110px;
     }
     ul li {
         border:solid 1px red;
@@ -75,7 +75,7 @@
         }else{
             if(text.value==""){
                 alert("请输入合法数字！");
-            }else if(text.value>100||text.value<10){
+            }else if(text.value>=100||text.value<=10){
                 alert("请输入10-100之间的数字");
                 text.value="";
             }else{
@@ -95,7 +95,7 @@
         }else {
             if(text.value==""){
                 alert("请输入合法数字！");
-            }else if(text.value>100||text.value<10){
+            }else if(text.value>=100||text.value<=10){
                 alert("请输入10-100之间的数字");
                 text.value="";
             }else{
@@ -125,18 +125,43 @@
         }
     }
 
-    /*按照最简单的冒泡排序进行排序*/
+    /*按照最简单的冒泡排序进行排序 静态排序版本
     function bubbleSort() {
         var ul = document.getElementById("array");
         var nodes = [].slice.call(ul.childNodes,1);
-        for(var i=0;i<nodes.length;i++)
-            for(var j=0;j<nodes.length-i-1;j++) {
-                if(nodes[j].style.height>nodes[j+1].style.height){   //交换的并非是数组，只是交换了对应元素的属性
+        for(var i=0;i<nodes.length;i++) {
+            for (var j = 0; j < nodes.length - i - 1;j++ ) {
+                if (nodes[j].style.height > nodes[j + 1].style.height) {   //交换的并非是数组，只是交换了对应元素的属性
                     var height = nodes[j].style.height;
-                    nodes[j].style.height = nodes[j+1].style.height;
-                    nodes[j+1].style.height =height;
+                    nodes[j].style.height = nodes[j + 1].style.height;
+                    nodes[j + 1].style.height = height;
                 }
-         }
+            }
+        }
+    }*/
+    /*动态排序版本*/
+    function bubbleSort(){
+        var ul = document.getElementById("array");
+        var nodes = [].slice.call(ul.childNodes,1);
+        var i=0;
+        var j=0;
+        var loop = setInterval(function () {
+            if(i<nodes.length){
+                if(j<nodes.length-i-1){
+                    if (nodes[j].style.height > nodes[j + 1].style.height) {   //交换的并非是数组，只是交换了对应元素的属性
+                        var height = nodes[j].style.height;
+                        nodes[j].style.height = nodes[j + 1].style.height;
+                        nodes[j + 1].style.height = height;
+                    }
+                    j++;
+                }else{
+                    i++;
+                    j=0;
+                }
+            }else{
+                clearInterval(loop);
+            }
+        },500);
     }
 
     function init() {
@@ -162,9 +187,6 @@
         }
     }
     init();
-
-
 </script>
-
 </body>
 </html>
