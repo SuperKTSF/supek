@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE JavaScript Task 05</title>
+</head>
+<body>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+
+    form{
+        margin-bottom: 5px;
+
+    }
+    ul{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        height: 100px;
+    }
+    ul li {
+        border:solid 1px red;
+        height: 50px;
+        width: 5px;
+        font-size: 35px;
+        display: inline-block;
+        text-align: center;
+        vertical-align: bottom;
+        background-color: red;
+        margin-right: 3px;
+        color: red;
+        padding: 0  5px;
+        overflow: hidden;
+    }
+    input{
+        width: 400px;
+        height: 50px;
+        font-size: 30px;
+    }
+    button{
+        border-radius: 5px;
+        font-size: large;
+        width: 100px;
+        height: 50px;
+    }
+
+    button#right_in{
+        margin-right: 20px;
+    }
+</style>
+
+    <form>
+        <input type="text" placeholder="   请输入合法数字！"/>
+        <button type="button" id="left_in">左侧入</button>
+        <button type="button" id="right_in">右侧入</button>
+        <button type="button" id="left_out">左侧出</button>
+        <button type="button" id="right_out">右侧出</button>
+        <button type="button" id="sort">排序</button>
+    </form>
+    <div >
+        <ul id="array">
+        </ul>
+    </div>
+
+<script>
+    function left_in_Handle(){
+        var ul = document.getElementById("array");
+        var text = document.getElementsByTagName("input")[0];
+        var li = document.createElement("li");
+        if(ul.childElementCount>=60){
+            alert("队列已满，无法再插入");
+        }else{
+            if(text.value==""){
+                alert("请输入合法数字！");
+            }else if(text.value>100||text.value<10){
+                alert("请输入10-100之间的数字");
+                text.value="";
+            }else{
+                li.style.height = text.value +"px";   //这个方法虽然蠢了一些，但是看起来还不错
+                li.innerHTML=text.value;
+                ul.insertBefore(li,ul.firstElementChild);
+                text.value="";
+            }
+        }
+    }
+    function right_in_Handle(){
+        var ul = document.getElementById("array");
+        var text = document.getElementsByTagName("input")[0];
+        var li = document.createElement("li");
+        if(ul.childElementCount>=60){
+            alert("队列已满，无法再插入");
+        }else {
+            if(text.value==""){
+                alert("请输入合法数字！");
+            }else if(text.value>100||text.value<10){
+                alert("请输入10-100之间的数字");
+                text.value="";
+            }else{
+                li.style.height = text.value +"px";
+                li.innerHTML=text.value;
+                ul.appendChild(li);
+                text.value="";
+            }
+        }
+    }
+    function left_out_Handle(){
+        var ul = document.getElementById("array");
+        if(ul.firstElementChild==null){
+            alert("数组已为空，无法移除！");
+        }else{
+            var node = ul.removeChild(ul.firstElementChild);  //firstChild和lastChild在不同情况下会返回文本节点，这里统一为element类型
+            alert(node.innerHTML);
+        }
+    }
+    function right_out_Handle(){
+        var ul = document.getElementById("array");
+        if(ul.lastElementChild==null){
+            alert("数组已为空，无法移除！");
+        }else{
+            var node = ul.removeChild(ul.lastElementChild);
+            alert(node.innerHTML);
+        }
+    }
+
+    /*按照最简单的冒泡排序进行排序*/
+    function bubbleSort() {
+        var ul = document.getElementById("array");
+        var nodes = [].slice.call(ul.childNodes,1);
+        for(var i=0;i<nodes.length;i++)
+            for(var j=0;j<nodes.length-i-1;j++) {
+                if(nodes[j].style.height>nodes[j+1].style.height){   //交换的并非是数组，只是交换了对应元素的属性
+                    var height = nodes[j].style.height;
+                    nodes[j].style.height = nodes[j+1].style.height;
+                    nodes[j+1].style.height =height;
+                }
+         }
+    }
+
+    function init() {
+        var left_in = document.getElementById("left_in");
+        var right_in = document.getElementById("right_in");
+        var left_out = document.getElementById("left_out");
+        var right_out = document.getElementById("right_out");
+        var sort = document.getElementById("sort");
+
+        left_in.onclick= left_in_Handle;
+        right_in.onclick= right_in_Handle;
+        left_out.onclick= left_out_Handle;
+        right_out.onclick= right_out_Handle;
+        sort.onclick=bubbleSort;
+
+        var  ul = document.getElementById("array");      //用事件代理来写是在是太爽了
+        ul.onclick = function(event){
+            var event = event||window.event;
+            var target = event.target||event.srcElement;
+            if(target.tagName.toLowerCase()=='li'){
+                ul.removeChild(target);
+            }
+        }
+    }
+    init();
+
+
+</script>
+
+</body>
+</html>
